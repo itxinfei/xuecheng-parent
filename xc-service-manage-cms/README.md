@@ -1,17 +1,15 @@
+## CMS页面管理系统-31001
 
 # 说明
 CmsSite：站点模型
 CmsTemplate：页面模板
 CmsPage：页面信息
 
-
 # 包结构
 com.xuecheng.manage_cms.config：配置类目录，数据库配置、MQ配置等
 com.xuecheng.manage_cms.dao：dao接口目录
 com.xuecheng.manage_cms.service：service类目录
 com.xuecheng.manage_cms.web.controller：controller类目录
-
-
 
 Optional是jdk1.8引入的类型，Optional是一个容器对象，它包括了我们需要的对象，使用isPresent方法判断所包
 含对象是否为空，isPresent方法返回false则表示Optional包含对象为空，否则可以使用get()取出对象进行操作。

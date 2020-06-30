@@ -12,3 +12,18 @@ buildNumber.properties
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
+xc-ui-pc-static-portal/img/.DS_Store
+xc-ui-pc-static-portal/plugins/bootstrap/.DS_Store
+xc-ui-pc-static-portal/plugins/bootstrap/dist/.DS_Store
+xc-ui-pc-static-portal/plugins/bootstrap/less/.DS_Store
+xc-ui-pc-static-portal/plugins/bootstrap/node_modules/
+xc-ui-pc-static-portal/plugins/jquery/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/external/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/external/sizzle/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/src/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/src/ajax/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/src/core/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/src/css/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/src/data/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/src/manipulation/.DS_Store
+xc-ui-pc-static-portal/plugins/jquery/src/traversing/.DS_Store
