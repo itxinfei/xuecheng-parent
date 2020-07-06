@@ -13,11 +13,17 @@
 
     <!--子模块-->
     <modules>
+        <module>xc-framework-common</module>
+        <module>xc-framework-model</module>
+        <module>xc-framework-utils</module>
+        <module>xc-service-manage-cms</module>
+        <module>xc-service-manage-cms-client</module>
         <module>xc-service-manage-course</module>
         <module>xc-service-manage-media</module>
         <module>xc-service-manage-media-processor</module>
         <module>xc-govern-center</module>
         <module>xc-govern-gateway</module>
+        <module>xc-service-api</module>
         <module>xc-service-base-filesystem</module>
         <module>xc-service-learning</module>
         <module>xc-service-search</module>
@@ -30,8 +36,8 @@
     <artifactId>xc-framework-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <!--版本控制-->
 
+    <!--版本控制-->
     <properties>
         <java.version>1.8</java.version>
         <tomcat.version>8.5.28</tomcat.version>
@@ -88,7 +94,6 @@
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
