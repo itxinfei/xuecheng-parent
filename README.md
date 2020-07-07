@@ -28,9 +28,73 @@
 5. 客户端UI请求服务层获取进行具体的业务操作。
 6. 服务层将数据持久化到数据库。
 
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142642_9e56a1f0_800553.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142716_3ad8536b_800553.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142726_1ca66a9a_800553.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142736_ea11423b_800553.png "屏幕截图.png")
+
+### 技术栈
+下图是项目技术架构的简图，通过简图了解项目所使用的技术栈。
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142807_0aaf6264_800553.png "屏幕截图.png")
+
+#### 重点了解微服务技术栈：
+学成在线服务端基于Spring Boot构建，采用Spring Cloud微服务框架。
+
+持久层：MySQL、MongoDB、Redis、ElasticSearch
+
+数据访问层：使用Spring Data JPA 、Mybatis、Spring Data Mongodb等
+
+业务层：Spring IOC、Aop事务控制、Spring Task任务调度、Feign、Ribbon、Spring AMQP、Spring Data Redis
+等。
+
+控制层：Spring MVC、FastJSON、RestTemplate、Spring Security Oauth2+JWT等
+
+微服务治理：Eureka、Zuul、Hystrix、Spring Cloud Config等
+
+### 开发步骤
+
+项目是基于前后端分离的架构进行开发，前后端分离架构总体上包括前端和服务端，通常是多人协作并行开发，开发步骤如下：
+1、需求分析
+梳理用户的需求，分析业务流程
+
+2、接口定义
+根据需求分析定义接口
+
+3、服务端和前端并行开发
+依据接口进行服务端接口开发。
+前端开发用户操作界面，并请求服务端接口完成业务处理。
+
+4、前后端集成测试
+最终前端调用服务端接口完成业务。
+
+### 前端页面
+
+![xc前端页面](https://images.gitee.com/uploads/images/2020/0707/143029_36e58658_800553.png "屏幕截图.png")
+
+
+### 工程结构
+
+CMS及其它服务端工程基于maven进行构建，首先需要创建如下基础工程：
+
+parent工程：父工程，提供依赖管理。
+
+common工程：通用工程，提供各层封装
+
+model工程：模型工程，提供统一的模型类管理
+
+utils工程：工具类工程，提供本项目所使用的工具类
+
+Api工程：接口工程，统一管理本项目的服务接口。
+
+![工程结构](https://images.gitee.com/uploads/images/2020/0707/143310_080aea5d_800553.png "屏幕截图.png")
 
 
 
 
 
 
+## end
