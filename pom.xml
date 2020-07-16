@@ -21,14 +21,14 @@
         <module>xc-service-manage-course</module>
         <module>xc-service-manage-media</module>
         <module>xc-service-manage-media-processor</module>
-        <module>xc-govern-center</module>
-        <module>xc-govern-gateway</module>
         <module>xc-service-api</module>
         <module>xc-service-base-filesystem</module>
         <module>xc-service-learning</module>
         <module>xc-service-search</module>
         <module>xc-service-ucenter</module>
         <module>xc-service-ucenter-auth</module>
+        <module>xc-govern-center</module>
+        <module>xc-govern-gateway</module>
     </modules>
 
     <!--学成在线-->
@@ -176,14 +176,14 @@
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
-            <!-- &lt;!&ndash; 资源文件拷贝插件 &ndash;&gt;
+            <!-- 资源文件拷贝插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
-            </plugin>-->
+            </plugin>
             <!-- java编译插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -200,5 +200,4 @@
             </plugin>-->
         </plugins>
     </build>
-
 </project>
