@@ -30,7 +30,7 @@ public class CmsConfigController implements CmsConfigControllerApi {
     @GetMapping("/getmodel/{id}")
     public CmsPage getmodel(@PathVariable("id") String id) {
         CmsPage byId = pageService.getById(id);
-        System.out.println(byId);
+        System.out.println("byId:"+byId);
         return pageService.getById(id);
     }
 }

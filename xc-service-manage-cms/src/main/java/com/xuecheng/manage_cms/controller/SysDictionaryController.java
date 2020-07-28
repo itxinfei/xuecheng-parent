@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sys/dictionary")
 public class SysDictionaryController implements SysDicthinaryControllerApi {
 
-
     @Autowired
     private SysdictionaryService sysdictionaryService;
 

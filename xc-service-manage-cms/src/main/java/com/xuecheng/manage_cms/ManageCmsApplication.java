@@ -3,6 +3,7 @@ package com.xuecheng.manage_cms;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +13,9 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * CMS 服务端工程
- * @author Administrator
+ * (exclude = {DataSourceAutoConfiguration.class})
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableDiscoveryClient
 //@EnableEurekaClient //注册中心是eureka,如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。
 @EntityScan("com.xuecheng.framework.domain.cms")//扫描实体类

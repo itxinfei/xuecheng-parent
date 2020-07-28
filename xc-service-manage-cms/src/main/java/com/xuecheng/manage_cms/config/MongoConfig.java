@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 配置mongo
- * @author Administrator
+ * @author pangzhao
  */
 @Configuration
 public class MongoConfig {

@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 统一异常捕获类
- * 异常捕获类中对Exception异常进行捕获，并从map中获取异常类型对应的错误代码，如果存在错误代码则返回此错误，否则统一返回99999错误。
+ * 异常捕获类中对Exception异常进行捕获，并从map中获取异常类型对应的错误代码，如果存在错误代码则返回此错误，否则统一返回99999错误。 *
+ * 控制器增强
  **/
-
-//控制器增强
 @ControllerAdvice
 public class ExceptionCatch {
 

@@ -11,9 +11,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Administrator
- * @version 1.0
- **/
+ *
+ */
 @Service
 public class AuthService {
 
@@ -21,37 +20,36 @@ public class AuthService {
     StringRedisTemplate stringRedisTemplate;
 
     //从头取出jwt令牌
-    public String getJwtFromHeader(HttpServletRequest request){
+    public String getJwtFromHeader(HttpServletRequest request) {
         //取出头信息
         String authorization = request.getHeader("Authorization");
-        if(StringUtils.isEmpty(authorization)){
+        if (StringUtils.isEmpty(authorization)) {
             return null;
         }
-        if(!authorization.startsWith("Bearer ")){
+        if (!authorization.startsWith("Bearer ")) {
             return null;
         }
         //取到jwt令牌
         String jwt = authorization.substring(7);
         return jwt;
-
-
     }
+
     //从cookie取出token
     //查询身份令牌
-    public String getTokenFromCookie(HttpServletRequest request){
+    public String getTokenFromCookie(HttpServletRequest request) {
         Map<String, String> cookieMap = CookieUtil.readCookie(request, "uid");
         String access_token = cookieMap.get("uid");
-        if(StringUtils.isEmpty(access_token)){
+        if (StringUtils.isEmpty(access_token)) {
             return null;
         }
         return access_token;
     }
 
     //查询令牌的有效期
-     public long getExpire(String access_token){
+    public long getExpire(String access_token) {
         //key
-         String key = "user_token:"+access_token;
-         Long expire = stringRedisTemplate.getExpire(key, TimeUnit.SECONDS);
-         return expire;
-     }
+        String key = "user_token:" + access_token;
+        Long expire = stringRedisTemplate.getExpire(key, TimeUnit.SECONDS);
+        return expire;
+    }
 }

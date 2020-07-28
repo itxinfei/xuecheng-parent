@@ -1,6 +1,8 @@
 package com.xuecheng.framework.client;
 
-
+/**
+ *
+ */
 public class XcServiceList {
     public static final String XC_GOVERN_CENTER = "xc-govern-center";
     public static final String XC_SERVICE_PORTALVIEW = "xc-service-portalview";
@@ -16,5 +18,4 @@ public class XcServiceList {
     public static final String XC_SERVICE_BASE_ID = "xc-service-base-id";
     public static final String XC_SERVICE_MANAGE_ORDER = "xc-service-manage-order";
     public static final String XC_SERVICE_LEARNING = "xc-service-learning";
-
 }

@@ -11,7 +11,6 @@ import com.xuecheng.manage_cms.service.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
 /**
  * CMS页面服务
  */
@@ -35,7 +34,7 @@ public class CmsPageController implements CmsPageControllerApi {
     public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size") int size, QueryPageRequest queryPageRequest) {
         String pageId = queryPageRequest.getPageId();
         QueryResponseResult list = pageService.findList(page, size, queryPageRequest);
-       System.out.println("list:"+list);
+        System.out.println("list:" + list);
         //页面名称
         System.out.println("页面名称" + queryPageRequest.getPageName());
         //页面类型-pageType
@@ -133,6 +132,4 @@ public class CmsPageController implements CmsPageControllerApi {
         System.out.println("一键发布页面；" + cmsPage);
         return pageService.postPageQuick(cmsPage);
     }
-
-
 }
