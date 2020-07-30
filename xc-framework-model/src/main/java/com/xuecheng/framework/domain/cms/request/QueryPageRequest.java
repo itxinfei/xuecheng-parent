@@ -4,14 +4,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author Administrator
- * @version 1.0
- * @create 2018-09-12 14:59
  * 定义请求模型QueryPageRequest，此模型作为查询条件类型
  * 为后期扩展需求，请求类型统一继承RequestData类型。
+ * 接收页面查询的查询条件
  **/
-
-//接收页面查询的查询条件
 @Data
 public class QueryPageRequest {
 

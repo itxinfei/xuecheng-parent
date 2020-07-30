@@ -18,6 +18,10 @@ public class CustomUserAuthenticationConverter extends DefaultUserAuthentication
     @Resource
     UserDetailsService userDetailsService;
 
+    /**
+     * @param authentication
+     * @return
+     */
     @Override
     public Map<String, ?> convertUserAuthentication(Authentication authentication) {
         LinkedHashMap response = new LinkedHashMap();

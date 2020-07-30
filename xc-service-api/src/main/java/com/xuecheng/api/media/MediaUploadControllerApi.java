@@ -6,9 +6,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * Created by Administrator.
- */
 @Api(value = "媒资管理接口",description = "媒资管理接口，提供文件上传、处理等接口")
 public interface MediaUploadControllerApi {
 

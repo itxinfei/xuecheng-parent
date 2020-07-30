@@ -18,12 +18,10 @@ import java.util.Date;
 //@GenericGenerator(name = "jpa-assigned", strategy = "assigned")
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
 public class XcTask implements Serializable {
-
     @Id
     @GeneratedValue(generator = "jpa-uuid")
     @Column(length = 32)
     private String id;
-
     @Column(name = "create_time")
     private Date createTime;
     @Column(name = "update_time")

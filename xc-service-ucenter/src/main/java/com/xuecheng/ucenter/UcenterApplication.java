@@ -12,6 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * 用户中心
+ */
 @EnableDiscoveryClient
 @EnableFeignClients
 @MapperScan("com.xuecheng.ucenter.dao")
@@ -20,7 +23,6 @@ import org.springframework.web.client.RestTemplate;
 @ComponentScan(basePackages = {"com.xuecheng.framework"})//扫描common下的所有类
 @SpringBootApplication
 public class UcenterApplication {
-
     public static void main(String[] args) throws Exception {
         SpringApplication.run(UcenterApplication.class, args);
     }

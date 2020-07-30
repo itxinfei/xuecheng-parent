@@ -14,12 +14,20 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@Component
+/**
+ * 登录过虑器
+ */
+@Component
 public class LoginFilter extends ZuulFilter {
+
     @Autowired
     AuthService authService;
 
-    //过虑器的类型
+    /**
+     * 过虑器的类型
+     *
+     * @return
+     */
     @Override
     public String filterType() {
         /**
@@ -31,12 +39,21 @@ public class LoginFilter extends ZuulFilter {
         return "pre";
     }
 
-    //过虑器序号，越小越被优先执行
+    /**
+     * 过虑器序号，越小越被优先执行
+     *
+     * @return
+     */
     @Override
     public int filterOrder() {
         return 0;
     }
 
+    /**
+     * 过虑器序号，越小越被优先执行
+     *
+     * @return
+     */
     @Override
     public boolean shouldFilter() {
         //返回true表示要执行此过虑器
@@ -81,7 +98,6 @@ public class LoginFilter extends ZuulFilter {
         return null;
     }
 
-
     /**
      * 拒绝访问
      */
@@ -101,6 +117,4 @@ public class LoginFilter extends ZuulFilter {
         //转成json，设置contentType
         response.setContentType("application/json;charset=utf-8");
     }
-
-
 }

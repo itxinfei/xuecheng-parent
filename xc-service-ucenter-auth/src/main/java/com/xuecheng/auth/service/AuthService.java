@@ -28,14 +28,14 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Administrator
- * @version 1.0
+ *
  **/
 @Service
 public class AuthService {
 
     @Value("${auth.tokenValiditySeconds}")
     int tokenValiditySeconds;
+
     @Resource
     LoadBalancerClient loadBalancerClient;
 
@@ -45,9 +45,16 @@ public class AuthService {
     @Resource
     RestTemplate restTemplate;
 
-    //用户认证申请令牌，将令牌存储到redis
+    /**
+     * 用户认证申请令牌，将令牌存储到redis
+     *
+     * @param username
+     * @param password
+     * @param clientId
+     * @param clientSecret
+     * @return
+     */
     public AuthToken login(String username, String password, String clientId, String clientSecret) {
-
         //请求spring security申请令牌
         AuthToken authToken = this.applyToken(username, password, clientId, clientSecret);
         if (authToken == null) {
@@ -63,7 +70,6 @@ public class AuthService {
             ExceptionCast.cast(AuthCode.AUTH_LOGIN_TOKEN_SAVEFAIL);
         }
         return authToken;
-
     }
 
 
@@ -82,14 +88,24 @@ public class AuthService {
         return expire > 0;
     }
 
-    //删除token
+    /**
+     * 删除token
+     *
+     * @param access_token
+     * @return
+     */
     public boolean delToken(String access_token) {
         String key = "user_token:" + access_token;
         stringRedisTemplate.delete(key);
         return true;
     }
 
-    //从redis查询令牌
+    /**
+     * 从redis查询令牌
+     *
+     * @param token
+     * @return
+     */
     public AuthToken getUserToken(String token) {
         String key = "user_token:" + token;
         //从redis中取到令牌信息
@@ -102,10 +118,17 @@ public class AuthService {
             e.printStackTrace();
             return null;
         }
-
     }
 
-    //申请令牌
+    /**
+     * 申请令牌
+     *
+     * @param username
+     * @param password
+     * @param clientId
+     * @param clientSecret
+     * @return
+     */
     private AuthToken applyToken(String username, String password, String clientId, String clientSecret) {
         //从eureka中获取认证服务的地址（因为spring security在认证服务中）
         //从eureka中获取认证服务的一个实例的地址
@@ -118,16 +141,13 @@ public class AuthService {
         LinkedMultiValueMap<String, String> header = new LinkedMultiValueMap<>();
         String httpBasic = getHttpBasic(clientId, clientSecret);
         header.add("Authorization", httpBasic);
-
         //定义body
         LinkedMultiValueMap<String, String> body = new LinkedMultiValueMap<>();
         body.add("grant_type", "password");
         body.add("username", username);
         body.add("password", password);
-
         HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(body, header);
         //String url, HttpMethod method, @Nullable HttpEntity<?> requestEntity, Class<T> responseType, Object... uriVariables
-
         //设置restTemplate远程调用时候，对400和401不让报错，正确返回数据
         restTemplate.setErrorHandler(new DefaultResponseErrorHandler() {
             @Override
@@ -137,16 +157,13 @@ public class AuthService {
                 }
             }
         });
-
         ResponseEntity<Map> exchange = restTemplate.exchange(authUrl, HttpMethod.POST, httpEntity, Map.class);
-
         //申请令牌信息
         Map bodyMap = exchange.getBody();
         if (bodyMap == null ||
                 bodyMap.get("access_token") == null ||
                 bodyMap.get("refresh_token") == null ||
                 bodyMap.get("jti") == null) {
-
             //解析spring security返回的错误信息
             if (bodyMap != null && bodyMap.get("error_description") != null) {
                 String error_description = (String) bodyMap.get("error_description");
@@ -156,8 +173,6 @@ public class AuthService {
                     ExceptionCast.cast(AuthCode.AUTH_CREDENTIAL_ERROR);
                 }
             }
-
-
             return null;
         }
         AuthToken authToken = new AuthToken();
@@ -167,8 +182,13 @@ public class AuthService {
         return authToken;
     }
 
-
-    //获取httpbasic的串
+    /**
+     * 获取httpbasic的串
+     *
+     * @param clientId
+     * @param clientSecret
+     * @return
+     */
     private String getHttpBasic(String clientId, String clientSecret) {
         String string = clientId + ":" + clientSecret;
         //将串进行base64编码

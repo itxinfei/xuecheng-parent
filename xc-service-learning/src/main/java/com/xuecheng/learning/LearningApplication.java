@@ -11,16 +11,17 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-
+/**
+ * 学习中心
+ */
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-@EntityScan(value = {"com.xuecheng.framework.domain.learning","com.xuecheng.framework.domain.task"})//扫描实体类
-@ComponentScan(basePackages={"com.xuecheng.api"})//扫描接口
-@ComponentScan(basePackages={"com.xuecheng.learning"})//扫描接口
-@ComponentScan(basePackages={"com.xuecheng.framework"})//扫描common下的所有类
+@EntityScan(value = {"com.xuecheng.framework.domain.learning", "com.xuecheng.framework.domain.task"})//扫描实体类
+@ComponentScan(basePackages = {"com.xuecheng.api"})//扫描接口
+@ComponentScan(basePackages = {"com.xuecheng.learning"})//扫描接口
+@ComponentScan(basePackages = {"com.xuecheng.framework"})//扫描common下的所有类
 public class LearningApplication {
-
     public static void main(String[] args) throws Exception {
         SpringApplication.run(LearningApplication.class, args);
     }
@@ -30,5 +31,4 @@ public class LearningApplication {
     public RestTemplate restTemplate() {
         return new RestTemplate(new OkHttp3ClientHttpRequestFactory());
     }
-
 }

@@ -9,10 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Author: mrt.
- * @Description:页面信息
- * @Date:Created in 2018/1/24 10:04.
- * @Modified By:
+ * 页面信息
  */
 @Data
 @ToString
@@ -56,7 +53,4 @@ public class CmsPage {
     private String htmlFileId;
     //数据Url
     private String dataUrl;
-
-
-
 }

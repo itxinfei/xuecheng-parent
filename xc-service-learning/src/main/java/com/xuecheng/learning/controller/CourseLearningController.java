@@ -9,12 +9,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ *
+ */
 @RestController
 @RequestMapping("/learning/course")
 public class CourseLearningController implements CourseLearningControllerApi {
+
     @Autowired
     LearningService learningService;
 
+    /**
+     * root
+     * @param courseId
+     * @param teachplanId
+     * @return
+     */
     @Override
     @GetMapping("/getmedia/{courseId}/{teachplanId}")
     public GetMediaResult getmedia(@PathVariable("courseId") String courseId

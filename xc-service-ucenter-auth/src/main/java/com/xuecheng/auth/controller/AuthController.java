@@ -58,35 +58,28 @@ public class AuthController implements AuthControllerApi {
         String username = loginRequest.getUsername();
         //密码
         String password = loginRequest.getPassword();
-
         //申请令牌
         AuthToken authToken = authService.login(username, password, clientId, clientSecret);
-        System.out.println("申请令牌:"+authToken);
-
+        System.out.println("申请令牌:" + authToken);
         //用户身份令牌
         String access_token = authToken.getAccess_token();
         //将令牌存储到cookie
         this.saveCookie(access_token);
-
         return new LoginResult(CommonCode.SUCCESS, access_token);
     }
 
     //将令牌存储到cookie
     private void saveCookie(String token) {
-
         HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
         //HttpServletResponse response,String domain,String path, String name, String value, int maxAge,boolean httpOnly
         CookieUtil.addCookie(response, cookieDomain, "/", "uid", token, cookieMaxAge, false);
-
     }
 
     //从cookie删除token
     private void clearCookie(String token) {
-
         HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
         //HttpServletResponse response,String domain,String path, String name, String value, int maxAge,boolean httpOnly
         CookieUtil.addCookie(response, cookieDomain, "/", "uid", token, 0, false);
-
     }
 
     //退出
@@ -110,7 +103,6 @@ public class AuthController implements AuthControllerApi {
         if (uid == null) {
             return new JwtResult(CommonCode.FAIL, null);
         }
-
         //拿身份令牌从redis中查询jwt令牌
         AuthToken userToken = authService.getUserToken(uid);
         if (userToken != null) {

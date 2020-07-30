@@ -15,9 +15,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author Administrator
- * @version 1.0
- **/
+ * 用户认证
+ */
 @Service
 public class UserService {
 
@@ -30,16 +29,26 @@ public class UserService {
     @Resource
     XcMenuMapper xcMenuMapper;
 
-    //根据账号查询xcUser信息
-    public XcUser findXcUserByUsername(String username){
+    /**
+     * 根据账号查询xcUser信息
+     *
+     * @param username
+     * @return
+     */
+    public XcUser findXcUserByUsername(String username) {
         return xcUserRepository.findByUsername(username);
     }
 
-    //根据账号查询用户信息
-    public XcUserExt getUserExt(String username){
+    /**
+     * 根据账号查询用户信息
+     *
+     * @param username
+     * @return
+     */
+    public XcUserExt getUserExt(String username) {
         //根据账号查询xcUser信息
         XcUser xcUser = this.findXcUserByUsername(username);
-        if(xcUser == null){
+        if (xcUser == null) {
             return null;
         }
         //用户id
@@ -51,16 +60,14 @@ public class UserService {
         XcCompanyUser xcCompanyUser = xcCompanyUserRepository.findByUserId(userId);
         //取到用户的公司id
         String companyId = null;
-        if(xcCompanyUser!=null){
+        if (xcCompanyUser != null) {
             companyId = xcCompanyUser.getCompanyId();
         }
         XcUserExt xcUserExt = new XcUserExt();
-        BeanUtils.copyProperties(xcUser,xcUserExt);
+        BeanUtils.copyProperties(xcUser, xcUserExt);
         xcUserExt.setCompanyId(companyId);
         //设置权限
         xcUserExt.setPermissions(xcMenus);
         return xcUserExt;
-
     }
-
 }

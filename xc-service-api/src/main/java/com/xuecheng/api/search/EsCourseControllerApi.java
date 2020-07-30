@@ -9,9 +9,6 @@ import io.swagger.annotations.ApiOperation;
 
 import java.util.Map;
 
-/**
- * Created by Administrator.
- */
 @Api(value = "课程搜索",description = "课程搜索",tags = {"课程搜索"})
 public interface EsCourseControllerApi {
     //搜索课程信息

@@ -20,14 +20,12 @@ public class CmsPagePreviewController extends BaseController {
     @Autowired
     private PageService pageService;
 
-    @RequestMapping(value = "/cms/preview/{pageId}",method = RequestMethod.GET)
+    @RequestMapping(value = "/cms/preview/{pageId}", method = RequestMethod.GET)
     public void preview(@PathVariable("pageId") String pageId) throws IOException {
-
         //执行静态化
         String pageHtml = pageService.getPageHtml(pageId);
-
         ServletOutputStream outputStream = response.getOutputStream();
-        response.setHeader("Content‐type","text/html;charset=utf‐8");
+        response.setHeader("Content‐type", "text/html;charset=utf‐8");
         outputStream.write(pageHtml.getBytes("utf-8"));
     }
 }

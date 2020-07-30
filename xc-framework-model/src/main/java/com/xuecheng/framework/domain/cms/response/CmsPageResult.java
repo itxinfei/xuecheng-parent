@@ -6,7 +6,6 @@ import com.xuecheng.framework.model.response.ResultCode;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @NoArgsConstructor
 public class CmsPageResult extends ResponseResult {

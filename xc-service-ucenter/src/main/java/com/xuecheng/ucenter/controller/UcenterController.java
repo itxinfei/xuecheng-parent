@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @author Administrator
- * @version 1.0
- **/
+ *
+ */
 @RestController
 @RequestMapping("/ucenter")
 public class UcenterController implements UcenterControllerApi {
-    
+
     @Resource
     UserService userService;
 

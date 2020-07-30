@@ -41,32 +41,35 @@ public class MediaUploadService {
 
     @Autowired
     RabbitTemplate rabbitTemplate;
+
     /**
      * 得到文件的目录
+     *
      * @param fileMd5
      * @return
      */
-    private String getFileFolderPath(String fileMd5){
-        return upload_location+fileMd5.substring(0,1)+"/" + fileMd5.substring(1,2) +"/"+fileMd5+"/";
+    private String getFileFolderPath(String fileMd5) {
+        return upload_location + fileMd5.substring(0, 1) + "/" + fileMd5.substring(1, 2) + "/" + fileMd5 + "/";
     }
 
     /**
      * 得到文件路径
+     *
      * @param fileMd5
      * @param fileExt
      * @return
      */
-    private String getFilePath(String fileMd5,String fileExt){
+    private String getFilePath(String fileMd5, String fileExt) {
 
-        return upload_location+fileMd5.substring(0,1)+"/" + fileMd5.substring(1,2) +"/"+fileMd5 + "/" + fileMd5 + "." +fileExt;
+        return upload_location + fileMd5.substring(0, 1) + "/" + fileMd5.substring(1, 2) + "/" + fileMd5 + "/" + fileMd5 + "." + fileExt;
     }
+
     //得到块文件所属目录路径
-    private String getChunkFileFolderPath(String fileMd5){
-        return  upload_location + fileMd5.substring(0,1) + "/" + fileMd5.substring(1,2) + "/" + fileMd5 + "/chunk/";
+    private String getChunkFileFolderPath(String fileMd5) {
+        return upload_location + fileMd5.substring(0, 1) + "/" + fileMd5.substring(1, 2) + "/" + fileMd5 + "/chunk/";
     }
 
     /**
-     *
      * 文件上传前的注册，检查文件是否存在
      * 根据文件md5得到文件路径
      * 规则：
@@ -74,6 +77,7 @@ public class MediaUploadService {
      * 二级目录：md5的第二个字符
      * 三级目录：md5
      * 文件名：md5+文件扩展名
+     *
      * @param fileMd5
      * @param fileName
      * @param fileSize
@@ -81,7 +85,7 @@ public class MediaUploadService {
      * @param fileExt
      * @return
      */
-    public ResponseResult register(String fileMd5, String fileName, Long fileSize, String mimetype, String fileExt){
+    public ResponseResult register(String fileMd5, String fileName, Long fileSize, String mimetype, String fileExt) {
         //文件所属目录的路径
         String fileFolderPath = this.getFileFolderPath(fileMd5);
         //文件路径
@@ -92,12 +96,12 @@ public class MediaUploadService {
 
         //2 检查文件信息在mongodb中是否存在
         Optional<MediaFile> optional = mediaFileRepository.findById(fileMd5);
-        if (exists && optional.isPresent()){
+        if (exists && optional.isPresent()) {
             ExceptionCast.cast(MediaCode.UPLOAD_FILE_REGISTER_EXIST);
         }
         //文件不存在时作一些准备工作，检查文件所在目录是否存在，如果不存在则创建
         File fileFolder = new File(fileFolderPath);
-        if (!fileFolder.exists()){
+        if (!fileFolder.exists()) {
             fileFolder.mkdirs();
         }
 
@@ -107,38 +111,44 @@ public class MediaUploadService {
     //分块检查
 
     /**
-     *
-     * @param fileMd5    文件MD5
-     * @param chunk       块的下标
-     * @param chunkSize   块的大小
+     * @param fileMd5   文件MD5
+     * @param chunk     块的下标
+     * @param chunkSize 块的大小
      * @return
      */
-    public CheckChunkResult checkchunk(String fileMd5, Integer chunk, Integer chunkSize){
+    public CheckChunkResult checkchunk(String fileMd5, Integer chunk, Integer chunkSize) {
         //检查分块文件是否存在
         //得到分块文件的所在目录
         String chunkFileFolderPath = this.getChunkFileFolderPath(fileMd5);
         //块文件
-         File chunkFile = new File(chunkFileFolderPath+chunk);
-         if (chunkFile.exists()){
-             //块文件存在
-             return new CheckChunkResult(CommonCode.SUCCESS,true);
-         }else {
-             //块文件不存在
-             return new CheckChunkResult(CommonCode.FAIL,false);
-         }
+        File chunkFile = new File(chunkFileFolderPath + chunk);
+        if (chunkFile.exists()) {
+            //块文件存在
+            return new CheckChunkResult(CommonCode.SUCCESS, true);
+        } else {
+            //块文件不存在
+            return new CheckChunkResult(CommonCode.FAIL, false);
+        }
     }
 
 
-    //文件上传分块
-    public ResponseResult uploadchunk(MultipartFile file, String fileMd5, Integer chunk){
+    /**
+     * 文件上传分块
+     *
+     * @param file
+     * @param fileMd5
+     * @param chunk
+     * @return
+     */
+    public ResponseResult uploadchunk(MultipartFile file, String fileMd5, Integer chunk) {
         //检查分块目录，如果不存在则要自动创建
         //得到分块目录
         String chunkFileFolderPath = this.getChunkFileFolderPath(fileMd5);
         //得到分块文件
-        String chunkFilePath = chunkFileFolderPath+chunk;
+        String chunkFilePath = chunkFileFolderPath + chunk;
 
         File chunkFileFolder = new File(chunkFileFolderPath);
-        if (!chunkFileFolder.exists()){
+        if (!chunkFileFolder.exists()) {
             chunkFileFolder.mkdirs();
         }
         //得到输入输出流
@@ -147,10 +157,10 @@ public class MediaUploadService {
         try {
             inputStream = file.getInputStream();
             outputStream = new FileOutputStream(new File(chunkFilePath));
-            IOUtils.copy(inputStream,outputStream);
+            IOUtils.copy(inputStream, outputStream);
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 inputStream.close();
             } catch (IOException e) {
@@ -166,8 +176,17 @@ public class MediaUploadService {
 
     }
 
-    //合并文件
-    public ResponseResult mergechunks(String fileMd5, String fileName, Long fileSize, String mimetype, String fileExt){
+    /**
+     * 合并文件
+     *
+     * @param fileMd5
+     * @param fileName
+     * @param fileSize
+     * @param mimetype
+     * @param fileExt
+     * @return
+     */
+    public ResponseResult mergechunks(String fileMd5, String fileName, Long fileSize, String mimetype, String fileExt) {
 
         //1、合并所有分块
         //得到分块文件的属目录
@@ -179,25 +198,25 @@ public class MediaUploadService {
         //创建一个合并文件
         String filePath = this.getFilePath(fileMd5, fileExt);
         File mergeFile = new File(filePath);
-        mergeFile = this.mergeFile(fileList,mergeFile);
+        mergeFile = this.mergeFile(fileList, mergeFile);
 
         //合并块文件
-        if (mergeFile == null){
+        if (mergeFile == null) {
             ExceptionCast.cast(MediaCode.MERGE_FILE_FAIL);
         }
 
         //校验
         boolean checkFileMd5 = this.checkFileMd5(mergeFile, fileMd5);
-        if (!checkFileMd5){
+        if (!checkFileMd5) {
             ExceptionCast.cast(MediaCode.MERGE_FILE_CHECKFAIL);
         }
         //3、将文件的信息写入mongodb
         MediaFile mediaFile = new MediaFile();
         mediaFile.setFileId(fileMd5);
         mediaFile.setFileOriginalName(fileName);
-        mediaFile.setFileName(fileMd5 + "." +fileExt);
+        mediaFile.setFileName(fileMd5 + "." + fileExt);
         //文件路径保存相对路径
-        String filePath1 = fileMd5.substring(0,1) + "/" + fileMd5.substring(1,2) + "/" + fileMd5 + "/";
+        String filePath1 = fileMd5.substring(0, 1) + "/" + fileMd5.substring(1, 2) + "/" + fileMd5 + "/";
         mediaFile.setFilePath(filePath1);
         mediaFile.setFileSize(fileSize);
         mediaFile.setUploadTime(new Date());
@@ -213,23 +232,24 @@ public class MediaUploadService {
 
     /**
      * 发送视频处理消息
+     *
      * @param mediaId
      * @return
      */
-    public ResponseResult sendProcessVideoMsg(String mediaId){
+    public ResponseResult sendProcessVideoMsg(String mediaId) {
 
         //查询数据库
         Optional<MediaFile> optional = mediaFileRepository.findById(mediaId);
-        if(!optional.isPresent()){
+        if (!optional.isPresent()) {
             ExceptionCast.cast(CommonCode.FAIL);
         }
         //构建消息内容
-        Map<String,String> map = new HashMap<>();
-        map.put("mediaId",mediaId);
+        Map<String, String> map = new HashMap<>();
+        map.put("mediaId", mediaId);
         String jsonString = JSON.toJSONString(map);
         //向MQ发送视频处理消息
         try {
-            rabbitTemplate.convertAndSend(RabbitMQConfig.EX_MEDIA_PROCESSTASK,routingkey_media_video,jsonString);
+            rabbitTemplate.convertAndSend(RabbitMQConfig.EX_MEDIA_PROCESSTASK, routingkey_media_video, jsonString);
         } catch (AmqpException e) {
             e.printStackTrace();
             return new ResponseResult(CommonCode.FAIL);
@@ -239,14 +259,14 @@ public class MediaUploadService {
     }
 
     //校验文件
-    private boolean checkFileMd5(File mergeFile,String md5){
+    private boolean checkFileMd5(File mergeFile, String md5) {
 
         try {
             FileInputStream inputStream = new FileInputStream(mergeFile);
             //得到文件的md5
             String md5Hex = DigestUtils.md5Hex(inputStream);
             //比较MD5码
-            if (md5.equalsIgnoreCase(md5Hex)){
+            if (md5.equalsIgnoreCase(md5Hex)) {
                 return true;
             }
         } catch (Exception e) {
@@ -257,47 +277,45 @@ public class MediaUploadService {
 
     }
 
-    //合并文件
     /**
+     * 合并文件
      *
      * @param chunkFileList
      * @param mergeFile
      * @return
      */
-    private File mergeFile(List<File> chunkFileList, File mergeFile){
-
+    private File mergeFile(List<File> chunkFileList, File mergeFile) {
         try {
             //如果合并文件已存在则删除，否则创建新文件
-            if (mergeFile.exists()){
+            if (mergeFile.exists()) {
                 mergeFile.delete();
-            }else {
+            } else {
                 mergeFile.createNewFile();
             }
             //对块文件进行排序
             Collections.sort(chunkFileList, new Comparator<File>() {
                 @Override
                 public int compare(File o1, File o2) {
-                   if (Integer.parseInt(o1.getName()) > Integer.parseInt(o2.getName())){
-                       return 1;
-                   }
+                    if (Integer.parseInt(o1.getName()) > Integer.parseInt(o2.getName())) {
+                        return 1;
+                    }
                     return -1;
                 }
             });
-
             //创建一个写对象
-            RandomAccessFile raf_write = new RandomAccessFile(mergeFile,"rw");
-            byte[]  b = new byte[1024];
-            for (File chunkFile: chunkFileList) {
-                RandomAccessFile raf_read = new RandomAccessFile(chunkFile,"r");
+            RandomAccessFile raf_write = new RandomAccessFile(mergeFile, "rw");
+            byte[] b = new byte[1024];
+            for (File chunkFile : chunkFileList) {
+                RandomAccessFile raf_read = new RandomAccessFile(chunkFile, "r");
                 int len = -1;
-                while ((len = raf_read.read(b)) != -1){
-                    raf_write.write(b,0,len);
+                while ((len = raf_read.read(b)) != -1) {
+                    raf_write.write(b, 0, len);
                 }
                 raf_read.close();
             }
             raf_write.close();
             return mergeFile;
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return null;
         }

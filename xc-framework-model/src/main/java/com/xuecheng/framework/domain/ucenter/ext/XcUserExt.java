@@ -8,7 +8,7 @@ import lombok.ToString;
 import java.util.List;
 
 /**
- * Created by admin on 2018/3/20.
+ * 此接口将来被用来查询用户信息及用户权限信息，所以这里定义扩展类型
  */
 @Data
 @ToString

@@ -37,6 +37,15 @@ public class FileSystemService {
     @Resource
     FileSystemRepository fileSystemRepository;
 
+    /**
+     * 文件上传
+     *
+     * @param file
+     * @param filetag
+     * @param businesskey
+     * @param metadata
+     * @return
+     */
     public UploadFileResult upload(MultipartFile file,
                                    String filetag,
                                    String businesskey,
@@ -59,19 +68,21 @@ public class FileSystemService {
             Map map = JSON.parseObject(metadata, Map.class);
             fileSystem.setMetadata(map);
         }
-
         fileSystem.setFileName(file.getOriginalFilename());
         //大小
         fileSystem.setFileSize(file.getSize());
         // 文件类型
         fileSystem.setFileType(file.getContentType());
         fileSystemRepository.save(fileSystem);
-
         return new UploadFileResult(CommonCode.SUCCESS, fileSystem);
-
     }
 
-    //上传文件到fdfs，返回文件id
+    /**
+     * 上传文件到fdfs，返回文件id
+     *
+     * @param file
+     * @return
+     */
     public String fdfs_upload(MultipartFile file) {
         //初始化
         initFdfsConfig();
@@ -93,18 +104,18 @@ public class FileSystemService {
             String extname = originalFilename.substring(originalFilename.lastIndexOf(".") + 1);
             //文件id
             String file1 = storageClient1.upload_file1(bytes, extname, null);
-            System.out.println("返回的文件id："+file1);
+            System.out.println("返回的文件id：" + file1);
             return file1;
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
-    //加载fdfs的配置
+    /**
+     * 加载fdfs的配置
+     */
     private void initFdfsConfig() {
-
         try {
             ClientGlobal.initByTrackers(tracker_servers);
             ClientGlobal.setG_connect_timeout(connect_timeout_in_seconds);
@@ -115,9 +126,5 @@ public class FileSystemService {
             e.printStackTrace();
             ExceptionCast.cast(FileSystemCode.FS_INITFDFSERROR);
         }
-
-
     }
-
-
 }

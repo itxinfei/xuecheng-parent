@@ -32,17 +32,10 @@ public class CmsPageController implements CmsPageControllerApi {
     @Override
     @RequestMapping("/list/{page}/{size}")
     public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size") int size, QueryPageRequest queryPageRequest) {
-        String pageId = queryPageRequest.getPageId();
         QueryResponseResult list = pageService.findList(page, size, queryPageRequest);
-        System.out.println("list:" + list);
-        //页面名称
-        System.out.println("页面名称" + queryPageRequest.getPageName());
-        //页面类型-pageType
-
-        System.out.println("页面类型" + queryPageRequest.getPageType());
-        //精确匹配，页面类型包括：静态和动态，在数据库中静态用“0”表示，动态用“1”表示
-        //调用service
-        return pageService.findList(page, size, queryPageRequest);
+        //打印查询到的信息
+        System.out.println(list.toString());
+        return list;
     }
 
     /**

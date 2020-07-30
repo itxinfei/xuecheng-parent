@@ -3,12 +3,13 @@ package com.xuecheng.filesystem;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 课程图片管理
  **/
-@SpringBootApplication//扫描所在包及子包的bean，注入到ioc中
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})//扫描所在包及子包的bean，注入到ioc中
 @EntityScan("com.xuecheng.framework.domain.filesystem")//扫描实体类
 @ComponentScan(basePackages = {"com.xuecheng.api"})//扫描接口
 @ComponentScan(basePackages = {"com.xuecheng.framework"})//扫描framework中通用类

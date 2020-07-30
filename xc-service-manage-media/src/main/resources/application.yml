@@ -5,10 +5,10 @@ spring:
     name: xc-service-manage-media
   data:
     mongodb:
-      uri:  mongodb://172.168.20.134:27017
+      uri:  mongodb://192.168.8.6:27017
       database: xc_media
 xc-service-manage-media:
-  upload-location: F:/develop/video/
+  upload-location: D:/heima/video
   mq:
     routingkey-media-video: routingkey_media_video
 eureka:

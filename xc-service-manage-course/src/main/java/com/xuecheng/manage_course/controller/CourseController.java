@@ -76,24 +76,46 @@ public class CourseController implements CourseControllerApi {
         return courseService.addCourseBase(courseBase);
     }
 
-    //通过ID获取课程信息
+    /**
+     * 通过ID获取课程信息
+     *
+     * @param courseId
+     * @return
+     * @throws RuntimeException
+     */
     @GetMapping("/coursebase/get/{courseId}")
     public CourseBase getCourseBaseById(@PathVariable("courseId") String courseId) throws RuntimeException {
         return courseService.getCoursebaseById(courseId);
     }
 
+    /**
+     * @param id
+     * @param courseBase
+     * @return
+     */
     @PutMapping("/coursebase/update/{id}")
     public ResponseResult updateCourseBase(@PathVariable("id") String id, @RequestBody CourseBase courseBase) {
         return courseService.updateCoursebase(id, courseBase);
     }
 
-    //获取营销课程信息
+    /**
+     * 获取营销课程信息
+     *
+     * @param courseId
+     * @return
+     */
     @GetMapping("/coursemarket/get/{courseId}")
     public CourseMarket getCourseMarketById(@PathVariable("courseId") String courseId) {
         return courseService.getCourseMarketById(courseId);
     }
 
-    //修改课程信息
+    /**
+     * 修改课程信息
+     *
+     * @param id
+     * @param courseMarket
+     * @return
+     */
     @PostMapping("/coursemarket/update/{id}")
     public ResponseResult updateCourseMarket(@PathVariable("id") String id, @RequestBody CourseMarket courseMarket) {
         CourseMarket courseMarket1 = courseService.updateCourseMarket(id, courseMarket);
@@ -102,24 +124,39 @@ public class CourseController implements CourseControllerApi {
         } else {
             return new ResponseResult(CommonCode.FAIL);
         }
-
     }
 
-    //添加图片
+    /**
+     * 添加图片
+     *
+     * @param courseId
+     * @param pic
+     * @return
+     */
     @Override
     @PostMapping("/coursepic/add")
     public ResponseResult addCoursePic(@RequestParam("courseId") String courseId, @RequestParam("pic") String pic) {
         return courseService.saveCoursePic(courseId, pic);
     }
 
-    //获取课程图片
+    /**
+     * 获取课程图片
+     *
+     * @param courseId
+     * @return
+     */
     @Override
     @GetMapping("/coursepic/list/{courseId}")
     public CoursePic findCoursePic(@PathVariable("courseId") String courseId) {
         return courseService.findCoursepic(courseId);
     }
 
-    //删除图片
+    /**
+     * 删除图片
+     *
+     * @param courseId
+     * @return
+     */
     @Override
     @DeleteMapping("/coursepic/delete")
     public ResponseResult deleteCoursePic(@RequestParam("courseId") String courseId) {
@@ -132,23 +169,33 @@ public class CourseController implements CourseControllerApi {
         return courseService.getCoruseView(id);
     }
 
+    /**
+     * @param id
+     * @return
+     */
     @Override
     @PostMapping("/preview/{id}")
     public CoursePublishResult preview(@PathVariable("id") String id) {
         return courseService.preview(id);
     }
 
+    /**
+     * @param id
+     * @return
+     */
     @Override
     @PostMapping("/publish/{id}")
     public CoursePublishResult publish(@PathVariable("id") String id) {
         return courseService.publish(id);
     }
 
+    /**
+     * @param teachplanMedia
+     * @return
+     */
     @Override
     @PostMapping("/savemedia")
     public ResponseResult savemedia(@RequestBody TeachplanMedia teachplanMedia) {
         return courseService.savemedia(teachplanMedia);
     }
-
-
 }

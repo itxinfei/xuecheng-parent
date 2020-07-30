@@ -19,7 +19,12 @@ public class AuthService {
     @Autowired
     StringRedisTemplate stringRedisTemplate;
 
-    //从头取出jwt令牌
+    /**
+     * 从头取出jwt令牌
+     *
+     * @param request
+     * @return
+     */
     public String getJwtFromHeader(HttpServletRequest request) {
         //取出头信息
         String authorization = request.getHeader("Authorization");
@@ -34,8 +39,12 @@ public class AuthService {
         return jwt;
     }
 
-    //从cookie取出token
-    //查询身份令牌
+    /**
+     * 从cookie取出token,查询身份令牌
+     *
+     * @param request
+     * @return
+     */
     public String getTokenFromCookie(HttpServletRequest request) {
         Map<String, String> cookieMap = CookieUtil.readCookie(request, "uid");
         String access_token = cookieMap.get("uid");
@@ -45,7 +54,12 @@ public class AuthService {
         return access_token;
     }
 
-    //查询令牌的有效期
+    /**
+     * 查询令牌的有效期
+     *
+     * @param access_token
+     * @return
+     */
     public long getExpire(String access_token) {
         //key
         String key = "user_token:" + access_token;
