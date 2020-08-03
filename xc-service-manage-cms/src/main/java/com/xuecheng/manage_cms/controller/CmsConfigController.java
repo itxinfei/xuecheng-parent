@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 
 /**
  * 配置管理
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cms/config")
 public class CmsConfigController implements CmsConfigControllerApi {
 
-    @Autowired
+    @Resource
     private PageService pageService;
 
     /**

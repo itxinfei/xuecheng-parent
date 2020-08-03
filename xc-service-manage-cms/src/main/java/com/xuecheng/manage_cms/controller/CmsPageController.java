@@ -11,6 +11,7 @@ import com.xuecheng.manage_cms.service.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 /**
  * CMS页面服务
  */
@@ -32,6 +33,7 @@ public class CmsPageController implements CmsPageControllerApi {
     @Override
     @RequestMapping("/list/{page}/{size}")
     public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size") int size, QueryPageRequest queryPageRequest) {
+        String pageId = queryPageRequest.getPageId();
         QueryResponseResult list = pageService.findList(page, size, queryPageRequest);
         //打印查询到的信息
         System.out.println(list.toString());
