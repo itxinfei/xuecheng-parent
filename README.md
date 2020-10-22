@@ -28,14 +28,6 @@
 5. 客户端UI请求服务层获取进行具体的业务操作。
 6. 服务层将数据持久化到数据库。
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142642_9e56a1f0_800553.png "屏幕截图.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142716_3ad8536b_800553.png "屏幕截图.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142726_1ca66a9a_800553.png "屏幕截图.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142736_ea11423b_800553.png "屏幕截图.png")
-
 ### 技术栈
 下图是项目技术架构的简图，通过简图了解项目所使用的技术栈。
 
@@ -54,22 +46,6 @@
 控制层：Spring MVC、FastJSON、RestTemplate、Spring Security Oauth2+JWT等
 
 微服务治理：Eureka、Zuul、Hystrix、Spring Cloud Config等
-
-### 开发步骤
-
-项目是基于前后端分离的架构进行开发，前后端分离架构总体上包括前端和服务端，通常是多人协作并行开发，开发步骤如下：
-1、需求分析
-梳理用户的需求，分析业务流程
-
-2、接口定义
-根据需求分析定义接口
-
-3、服务端和前端并行开发
-依据接口进行服务端接口开发。
-前端开发用户操作界面，并请求服务端接口完成业务处理。
-
-4、前后端集成测试
-最终前端调用服务端接口完成业务。
 
 ### 前端页面
 
