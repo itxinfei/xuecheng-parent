@@ -39,6 +39,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -55,10 +56,10 @@ public class PageService {
     private CmsPageRepository cmsPageRepository;
 
     @Autowired
-    private  CmsConfigRepository cmsConfigRepository;
+    private CmsConfigRepository cmsConfigRepository;
 
     @Autowired
-    private  RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     @Autowired
     private CmsTemplateRepository cmsTemplateRepository;
@@ -67,9 +68,9 @@ public class PageService {
     private CmsSiteRepository cmsSiteRepository;
 
     @Autowired
-    private  GridFsTemplate gridFsTemplate;
+    private GridFsTemplate gridFsTemplate;
 
-    @Autowired
+    @Resource
     private GridFSBucket gridFSBucket;
 
     @Autowired
@@ -151,6 +152,7 @@ public class PageService {
     public CmsPage getById(String id) {
         Optional<CmsPage> optional = cmsPageRepository.findById(id);
         System.out.println("根据页面" + id + "查询页面" + optional);
+        //判断对象是否存在
         if (optional.isPresent()) {
             CmsPage cmsPage = optional.get();
             return cmsPage;

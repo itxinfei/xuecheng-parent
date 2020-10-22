@@ -2,10 +2,10 @@ package com.xuecheng.govern.service;
 
 import com.xuecheng.framework.utils.CookieUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class AuthService {
 
-    @Autowired
+    @Resource
     StringRedisTemplate stringRedisTemplate;
 
     /**

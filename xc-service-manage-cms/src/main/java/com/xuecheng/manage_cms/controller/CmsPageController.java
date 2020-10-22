@@ -8,8 +8,9 @@ import com.xuecheng.framework.domain.cms.response.CmsPostPageResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_cms.service.PageService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 
 /**
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/cms/page")
 public class CmsPageController implements CmsPageControllerApi {
 
-    @Autowired
+    @Resource
     private PageService pageService;
 
     /**
@@ -53,7 +54,7 @@ public class CmsPageController implements CmsPageControllerApi {
     }
 
     /**
-     * 修改页面
+     * 根据id查询页面
      *
      * @param id
      * @return

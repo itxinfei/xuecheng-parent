@@ -19,9 +19,9 @@ xuecheng:
     queue: queue_cms_postpage_03
     routingKey: 5b30cba5f58b4411fc6cb1e5	#此routingKey为门户站点ID
 
-logging:
-  level:
-    org:
-      springframework:
-        boot:
-          autoconfigure: error
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        boot:
+#          autoconfigure: error

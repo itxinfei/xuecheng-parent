@@ -24,6 +24,5 @@ public class BaseController {
         this.response = response;
 
         this.session = request.getSession();
-
     }
 }
