@@ -19,7 +19,7 @@ spring:
       minEvictableIdleTimeMillis: 300000  #连接在连接池的最小生存时间（毫秒）
 #rabbitmq配置
   rabbitmq:
-    host: 192.168.8.6
+    host: 172.168.20.221
     port: 5672
     username: guest
     password: guest
