@@ -1,3 +1,10 @@
+## 学成在线
+
+### 交流方式：
+
+QQ技术交流群：863662849<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9yLlyD1dRBL97xmBKw43zRt0-6xg8ohb&jump_from=webapi">
+<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Java项目交流+求职面试" title="Java项目交流+求职面试"></a><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=f0hLSE9OTkdHTT8ODlEcEBI" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a>
+
 ### 学成在线静态页面
 http://itxinfei.gitee.io/xuecheng-parent
 
@@ -53,35 +60,3 @@ http://itxinfei.gitee.io/xuecheng-parent
 ### 前端页面
 
 ![xc前端页面](https://images.gitee.com/uploads/images/2020/0707/143029_36e58658_800553.png "屏幕截图.png")
-
-
-### 工程结构
-
-CMS及其它服务端工程基于maven进行构建，首先需要创建如下基础工程：
-
-parent工程：父工程，提供依赖管理。
-
-common工程：通用工程，提供各层封装
-
-model工程：模型工程，提供统一的模型类管理
-
-utils工程：工具类工程，提供本项目所使用的工具类
-
-Api工程：接口工程，统一管理本项目的服务接口。
-
-### 交流方式：
-
-QQ技术交流群：863662849<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9yLlyD1dRBL97xmBKw43zRt0-6xg8ohb&jump_from=webapi">
-<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Java项目交流+求职面试" title="Java项目交流+求职面试"></a><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=f0hLSE9OTkdHTT8ODlEcEBI" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a>
-
-![QQ技术交流群：863662849](https://images.gitee.com/uploads/images/2020/1022/145319_459f7be2_800553.png "QQ技术交流群.png")
-
-========================================================================================================================
-
-### 整理不易，欢迎白嫖star
-
-如果可以请各位大佬打赏一下，请我喝杯咖啡，资助一下云服务器，部署一个演示站点，感谢！！！
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1022/152637_f80669f5_800553.jpeg "支付宝收钱码.jpg")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1022/152705_964cb145_800553.png "微信收钱码.png")
