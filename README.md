@@ -7,7 +7,7 @@
     <img alt="code style" src="https://img.shields.io/badge/QQ群-863662849-red">
   </a> 
   <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=f0hLSE9OTkdHTT8ODlEcEBI">
-    <img alt="code style" src="https://img.shields.io/badge/mail-74701188@qq.com-red">
+    <img alt="code style" src="https://img.shields.io/badge/mail-747011882@qq.com-red">
   </a> 
 
   <a href=" ">
@@ -21,7 +21,7 @@
   </a> 
 </p>
 
-### 学成在线静态页面
+### 静态页面
 
 http://itxinfei.gitee.io/xuecheng-parent
 
