@@ -6,7 +6,7 @@ spring:
   application:
     name: xc-govern-gateway
   redis:
-    host: ${REDIS_HOST:172.168.20.221}
+    host: ${REDIS_HOST:47.94.207.39}
     port: ${REDIS_PORT:6379}
     timeout: 5000 #连接超时 毫秒
     jedis:

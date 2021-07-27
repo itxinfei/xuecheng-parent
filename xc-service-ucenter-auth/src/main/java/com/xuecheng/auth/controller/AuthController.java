@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- *
+ * 用户认证
  */
 @RestController
 @RequestMapping("/")
@@ -45,6 +45,12 @@ public class AuthController implements AuthControllerApi {
     @Resource
     AuthService authService;
 
+    /**
+     * 用户登录
+     *
+     * @param loginRequest
+     * @return
+     */
     @Override
     @PostMapping("/userlogin")
     public LoginResult login(LoginRequest loginRequest) {
@@ -68,21 +74,33 @@ public class AuthController implements AuthControllerApi {
         return new LoginResult(CommonCode.SUCCESS, access_token);
     }
 
-    //将令牌存储到cookie
+    /**
+     * 将令牌存储到cookie
+     *
+     * @param token
+     */
     private void saveCookie(String token) {
         HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
         //HttpServletResponse response,String domain,String path, String name, String value, int maxAge,boolean httpOnly
         CookieUtil.addCookie(response, cookieDomain, "/", "uid", token, cookieMaxAge, false);
     }
 
-    //从cookie删除token
+    /**
+     * 从cookie删除token
+     *
+     * @param token
+     */
     private void clearCookie(String token) {
         HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
         //HttpServletResponse response,String domain,String path, String name, String value, int maxAge,boolean httpOnly
         CookieUtil.addCookie(response, cookieDomain, "/", "uid", token, 0, false);
     }
 
-    //退出
+    /**
+     * 退出
+     *
+     * @return
+     */
     @Override
     @PostMapping("/userlogout")
     public ResponseResult logout() {
@@ -113,7 +131,11 @@ public class AuthController implements AuthControllerApi {
         return null;
     }
 
-    //取出cookie中的身份令牌
+    /**
+     * 取出cookie中的身份令牌
+     *
+     * @return
+     */
     private String getTokenFormCookie() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         Map<String, String> map = CookieUtil.readCookie(request, "uid");

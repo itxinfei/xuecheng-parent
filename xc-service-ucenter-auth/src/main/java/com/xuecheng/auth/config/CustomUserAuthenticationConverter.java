@@ -45,9 +45,6 @@ public class CustomUserAuthenticationConverter extends DefaultUserAuthentication
         if (authentication.getAuthorities() != null && !authentication.getAuthorities().isEmpty()) {
             response.put("authorities", AuthorityUtils.authorityListToSet(authentication.getAuthorities()));
         }
-
         return response;
     }
-
-
 }
