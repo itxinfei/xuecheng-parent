@@ -21,9 +21,7 @@
   </a> 
 </p>
 
-#### 演示网站
-
-http://itxinfei.gitee.io/xuecheng-parent
+演示网站：http://itxinfei.gitee.io/xuecheng-parent
 
 ### 一、项目背景
 
