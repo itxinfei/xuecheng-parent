@@ -21,7 +21,7 @@
   </a> 
 </p>
 
-### 静态页面
+#### 演示网站
 
 http://itxinfei.gitee.io/xuecheng-parent
 
@@ -46,7 +46,7 @@ http://itxinfei.gitee.io/xuecheng-parent
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0617/161541_e0e61256_800553.png "xcjx.png")
 
-#### 四、业务流程举例：
+### 四、业务流程举例：
 
 1. 用户可以通过pc、手机等客户端访问系统进行在线学习。
 2. 系统应用CDN技术，对一些图片、CSS、视频等资源从CDN调度访问。
@@ -60,7 +60,7 @@ http://itxinfei.gitee.io/xuecheng-parent
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142807_0aaf6264_800553.png "屏幕截图.png")
 
-#### 六、重点了解微服务技术栈：
+### 六、重点了解微服务技术栈：
 学成在线服务端基于Spring Boot构建，采用Spring Cloud微服务框架。
 
 持久层：MySQL、MongoDB、Redis、ElasticSearch
