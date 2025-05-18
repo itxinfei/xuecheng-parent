@@ -1,77 +1,140 @@
-![](Doc/logo.png)
-<p align="center">
-  <a href="https://gitee.com/itxinfei">
-    <img alt="code style" src="https://img.shields.io/badge/心飞为你飞-https%3A%2F%2Fgitee.com%2Fitxinfei-green">
-  </a> 
-  <a href="https://qm.qq.com/cgi-bin/qm/qr?k=9yLlyD1dRBL97xmBKw43zRt0-6xg8ohb&jump_from=webapi">
-    <img alt="code style" src="https://img.shields.io/badge/QQ群-863662849-red">
-  </a> 
-  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=f0hLSE9OTkdHTT8ODlEcEBI">
-    <img alt="code style" src="https://img.shields.io/badge/mail-747011882@qq.com-red">
-  </a> 
 
-  <a href=" ">
-    <img alt="code style" src="https://img.shields.io/badge/JDK-1.8%2B-brightgreen">
-  </a> 
-  <a href=" ">
-    <img alt="maven" src="https://img.shields.io/badge/maven-3.6.3%2B-yellowgreen">
+<div align="center">
+
+![Logo](docs/logo.png)
+
+
+<h1>🎯 学成在线（Online Education Platform）</h1>
+
+
+ 一个基于互联网+的 IT 职业教育平台，提供课程学习、练习、考试等完整教学服务。
+
+  <a href="https://gitee.com/itxinfei" target="_blank">
+    <img alt="Author" src="https://img.shields.io/badge/心飞为你飞-https%3A%2F%2Fgitee.com%2Fitxinfei-green">
   </a>
-  <a href=" ">
-    <img alt="code style" src="https://img.shields.io/badge/license-Apache-green">
-  </a> 
-</p>
+  <a href="https://qm.qq.com/cgi-bin/qm/qr?k=9yLlyD1dRBL97xmBKw43zRt0-6xg8ohb&jump_from=webapi" target="_blank">
+    <img alt="QQ群" src="https://img.shields.io/badge/QQ群-863662849-red">
+  </a>
+  <a href="mailto:747011882@qq.com">
+    <img alt="Email" src="https://img.shields.io/badge/mail-747011882@qq.com-red">
+  </a>
+  <a href="https://xczx2-admin.itheima.net/#/login" target="_blank">
+    <img alt="演示网站" src="https://img.shields.io/badge/演示网站-online-brightgreen">
+  </a>
 
-演示网站：https://xczx2-admin.itheima.net/#/login
+  <a href="#">
+    <img alt="JDK" src="https://img.shields.io/badge/JDK-1.8%2B-brightgreen">
+  </a>
+  <a href="#">
+    <img alt="Maven" src="https://img.shields.io/badge/Maven-3.6.3%2B-yellowgreen">
+  </a>
+  <a href="#">
+    <img alt="License" src="https://img.shields.io/badge/license-Apache-green">
+  </a>
+
+</div>
+
 
 ### 一、项目背景
 
-受互联网+概念的催化，当今中国在线教育市场的发展可谓是百花齐放、如火如荼。 按照市场领域细分为：学前教育、K12教育、高等教育、留学教育、职业教育、语言教育、兴趣教育以及综合平台，其中，职业教育和语言教育的市场优势突出。 根据Analysys易观发布的数据显示，预计2019年中国互联网教育市场交易规模将达到3718亿元人民币，未来三年互联网教育市场规模保持高速增长。
+受互联网+概念的催化，当今中国在线教育市场的发展可谓是百花齐放、如火如荼。按照市场领域细分为：学前教育、K12教育、高等教育、留学教育、职业教育、语言教育、兴趣教育以及综合平台，其中，职业教育和语言教育的市场优势突出。
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/141836_8eb5bfe8_800553.png "472B78CD-699E-494f-BC84-5CFD43E7C6DB.png")
+根据Analysys易观发布的数据显示，预计2019年中国互联网教育市场交易规模将达到3718亿元人民币，未来三年互联网教育市场规模保持高速增长。
 
-学成在线借鉴了MOOC（大型开放式网络课程，即MOOC（massive open online courses））的设计思想，是一个提供IT职业课程在线学习的平台，它为即将和已经加入IT领域的技术人才提供在线学习服务，用户通过在线学习、在线练习、在线考试等学习内容，最终掌握所学的IT技能，并能在工作中熟练应用。
+学成在线借鉴了 MOOC（大型开放式网络课程）的设计思想，是一个提供 IT 职业课程在线学习的平台，为即将和已经加入 IT 领域的技术人才提供在线学习服务，用户通过在线学习、在线练习、在线考试等完成知识掌握，并能在工作中熟练应用。
+
+![项目架构图](https://broadscope-dialogue-new.oss-cn-beijing.aliyuncs.com/output/20250518/14751ad9302816e9bcab3f869d019672.png?Expires=1779079743&OSSAccessKeyId=LTAI5tL97mBYzVcjkG1cUyin&Signature=ZDMfGTvBOP9jsumoQ1KBDhyiD0Q%3D)
+
+---
 
 ### 二、功能模块
 
-当前市场的在线教育模式多种多样，包括：B2C、C2C、B2B2C等业务模式，学成在线采用B2B2C业务模式，即向企业或个人提供在线教育平台提供教学服务，老师和学生通过平台完成整个教学和学习的过程，市场上类似的平台有：网易云课堂、腾讯课堂等，学成在线的特点是IT职业课程在线教学。学成在线包括门户、学习中心、教学管理中、社交系统、系统管理等功能模块。
+当前市场的在线教育模式多种多样，包括：B2C、C2C、B2B2C 等业务模式。学成在线采用 **B2B2C 模式**，即向企业或个人提供平台进行教学服务，老师和学生通过平台完成整个教学过程。
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0617/161602_e1209ff3_800553.png "xcgn.png")
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142020_40a517cb_800553.png "屏幕截图.png")
+类似平台有网易云课堂、腾讯课堂等，而学成在线专注于 **IT 职业课程在线教学**。
+
+主要功能模块如下：
+
+- 门户系统
+- 学习中心
+- 教学管理系统
+- 社交系统
+- 系统管理后台
+
+![功能模块图1](https://broadscope-dialogue-new.oss-cn-beijing.aliyuncs.com/output/20250518/3a0572520b7f92d1b667d6a8c1342171.png?Expires=1779079743&OSSAccessKeyId=LTAI5tL97mBYzVcjkG1cUyin&Signature=biws2wsQiYjPkWffsrbjkKbT3Nk%3D)  
+![功能模块图2](https://broadscope-dialogue-new.oss-cn-beijing.aliyuncs.com/output/20250518/03c35096b788858e420acd1329c1966e.png?Expires=1779079743&OSSAccessKeyId=LTAI5tL97mBYzVcjkG1cUyin&Signature=iVvNgD50bP588IUzDHCsxyMuSKg%3D)
+
+---
 
 ### 三、技术架构
 
-学成在线采用当前流行的前后端分离架构开发，由用户层、UI层、微服务层、数据层等部分组成，为PC、App、H5等客户端用户提供服务。下图是系统的技术架构图：
+学成在线采用当前流行的 **前后端分离架构** 开发，由用户层、UI 层、微服务层、数据层等组成，支持 PC、App、H5 等多终端访问。
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0617/161541_e0e61256_800553.png "xcjx.png")
+![技术架构图](https://broadscope-dialogue-new.oss-cn-beijing.aliyuncs.com/output/20250518/d4a533458276d4beb9d03a4d1af83be3.png?Expires=1779079743&OSSAccessKeyId=LTAI5tL97mBYzVcjkG1cUyin&Signature=VvqEO%2FT%2BqpEt4R9fFMbW9q7suqQ%3D)
 
-### 四、业务流程举例：
+---
 
-1. 用户可以通过pc、手机等客户端访问系统进行在线学习。
-2. 系统应用CDN技术，对一些图片、CSS、视频等资源从CDN调度访问。
-3. 所有的请求全部经过负载均衡器。
-4. 对于PC、H5等客户端请求，首先请求UI层，渲染用户界面。
-5. 客户端UI请求服务层获取进行具体的业务操作。
-6. 服务层将数据持久化到数据库。
+### 四、业务流程示例
 
-### 五、技术栈
-下图是项目技术架构的简图，通过简图了解项目所使用的技术栈。
+1. 用户可通过 PC、手机等客户端访问系统进行在线学习。
+2. 系统使用 CDN 技术加速静态资源（图片、CSS、视频等）加载。
+3. 所有请求经过负载均衡器处理。
+4. PC/H5 客户端请求 UI 层渲染界面。
+5. UI 层调用服务层获取数据并执行具体业务逻辑。
+6. 服务层将数据持久化至数据库。
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0707/142807_0aaf6264_800553.png "屏幕截图.png")
+---
 
-### 六、重点了解微服务技术栈：
-学成在线服务端基于Spring Boot构建，采用Spring Cloud微服务框架。
+### 五、技术栈概览
 
-持久层：MySQL、MongoDB、Redis、ElasticSearch
+![技术栈简图](https://broadscope-dialogue-new.oss-cn-beijing.aliyuncs.com/output/20250518/a9c641c7bad475195c901262bdce0672.png?Expires=1779079744&OSSAccessKeyId=LTAI5tL97mBYzVcjkG1cUyin&Signature=krvL3T41EzfysLOMmpfzmABluPw%3D)
 
-数据访问层：使用Spring Data JPA 、Mybatis、Spring Data Mongodb等
+---
 
-业务层：Spring IOC、Aop事务控制、Spring Task任务调度、Feign、Ribbon、Spring AMQP、Spring Data Redis
-等。
+### 六、核心微服务技术栈
 
-控制层：Spring MVC、FastJSON、RestTemplate、Spring Security Oauth2+JWT等
+学成在线后端基于 **Spring Boot + Spring Cloud** 构建，采用微服务架构设计，具备良好的扩展性与维护性。
 
-微服务治理：Eureka、Zuul、Hystrix、Spring Cloud Config等
+#### ✅ 持久层
+- MySQL
+- MongoDB
+- Redis
+- ElasticSearch
 
-### 七、前端页面
+#### ✅ 数据访问层
+- Spring Data JPA
+- MyBatis
+- Spring Data MongoDB
 
-![xc前端页面](https://images.gitee.com/uploads/images/2020/0707/143029_36e58658_800553.png "屏幕截图.png")
+#### ✅ 业务层
+- Spring IOC / AOP
+- Spring Task 任务调度
+- Feign / Ribbon 远程调用
+- Spring AMQP 消息队列
+- Spring Data Redis 缓存操作
+
+#### ✅ 控制层
+- Spring MVC
+- FastJSON
+- RestTemplate
+- Spring Security OAuth2 + JWT 权限控制
+
+#### ✅ 微服务治理
+- Eureka 注册中心
+- Zuul 网关路由
+- Hystrix 熔断降级
+- Spring Cloud Config 分布式配置
+
+---
+
+### 七、前端页面展示
+
+![前端页面截图](https://broadscope-dialogue-new.oss-cn-beijing.aliyuncs.com/output/20250518/c0652550f4f205647c04c2f750cd72ab.png?Expires=1779079744&OSSAccessKeyId=LTAI5tL97mBYzVcjkG1cUyin&Signature=FI96a3fAlTxmybNqLOpdmkFjmtA%3D)
+
+---
+### 🔗 项目链接 & 社区支持  
+![微信公众号二维码](docs/心飞为你飞.jpg)  
+🚀 项目地址：[https://gitee.com/itxinfei/xuecheng-parent](https://gitee.com/itxinfei/xuecheng-parent)  
+👥 QQ交流群：[661543188](https://qm.qq.com/cgi-bin/qm/qr?k=gNgch-wCkfUu-QbI7DZSudrax2BN7vY0&jump_from=webapi&authKey=QHSRnxQvu+h5S3AXGn/DSHrVPiFQAYEk6bSlCE1lS276SFjQAUagV4FG7bHf0OSM)  
+📧 邮箱支持：[747011882@qq.com](http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=f0hLSE9OTkdHTT8ODlEcEBI)  
+
