@@ -9,28 +9,55 @@
 
  一个基于互联网+的 IT 职业教育平台，提供课程学习、练习、考试等完整教学服务。
 
-  <a href="https://gitee.com/itxinfei" target="_blank">
-    <img alt="Author" src="https://img.shields.io/badge/心飞为你飞-https%3A%2F%2Fgitee.com%2Fitxinfei-green">
+<p align="center">
+  <a href="https://spring.io/projects/spring-boot" target="_blank">
+    <img alt="Spring Boot" src="https://img.shields.io/badge/Spring%20Boot-2.0.1-brightgreen">
   </a>
-  <a href="https://qm.qq.com/cgi-bin/qm/qr?k=9yLlyD1dRBL97xmBKw43zRt0-6xg8ohb&jump_from=webapi" target="_blank">
-    <img alt="QQ群" src="https://img.shields.io/badge/QQ群-863662849-red">
+  <a href="https://spring.io/projects/spring-cloud" target="_blank">
+    <img alt="Spring Cloud" src="https://img.shields.io/badge/Spring%20Cloud-Finchley.SR1-blue">
   </a>
-  <a href="mailto:747011882@qq.com">
-    <img alt="Email" src="https://img.shields.io/badge/mail-747011882@qq.com-red">
+  <a href="https://mybatis.org/mybatis-3/" target="_blank">
+    <img alt="MyBatis" src="https://img.shields.io/badge/MyBatis-3.4.5-orange">
   </a>
-  <a href="https://xczx2-admin.itheima.net/#/login" target="_blank">
-    <img alt="演示网站" src="https://img.shields.io/badge/演示网站-online-brightgreen">
+  <a href="https://square.github.io/okhttp/" target="_blank">
+    <img alt="OkHttp" src="https://img.shields.io/badge/OkHttp-3.9.1-yellow">
+  </a>
+  <a href="https://swagger.io/" target="_blank">
+    <img alt="Swagger" src="https://img.shields.io/badge/Swagger-2.7.0-red">
   </a>
 
-  <a href="#">
-    <img alt="JDK" src="https://img.shields.io/badge/JDK-1.8%2B-brightgreen">
+  <a href="https://www.elastic.co/elasticsearch" target="_blank">
+    <img alt="Elasticsearch" src="https://img.shields.io/badge/Elasticsearch-6.2.1-green">
   </a>
-  <a href="#">
-    <img alt="Maven" src="https://img.shields.io/badge/Maven-3.6.3%2B-yellowgreen">
+  <a href="https://fastjson.alibaba.com/" target="_blank">
+    <img alt="FastJSON" src="https://img.shields.io/badge/FastJSON-1.2.30-purple">
   </a>
-  <a href="#">
-    <img alt="License" src="https://img.shields.io/badge/license-Apache-green">
+  <a href="https://commons.apache.org/" target="_blank">
+    <img alt="Apache Commons" src="https://img.shields.io/badge/Apache%20Commons-IO%2CFileUpload%2CLang3-lightgrey">
   </a>
+  <a href="https://lombok.org/" target="_blank">
+    <img alt="Lombok" src="https://img.shields.io/badge/Lombok-1.16.16-blueviolet">
+  </a>
+  <a href="https://github.com/happyfish100/fastdfs-client-java" target="_blank">
+    <img alt="FastDFS" src="https://img.shields.io/badge/FastDFS-Client_1.27.0.0-critical">
+  </a>
+
+  <a href="https://maven.apache.org/" target="_blank">
+    <img alt="Maven" src="https://img.shields.io/badge/Maven-3.6.3+-yellowgreen">
+  </a>
+  <a href="https://openjdk.java.net/" target="_blank">
+    <img alt="JDK" src="https://img.shields.io/badge/JDK-1.8+-brightgreen">
+  </a>
+  <a href="https://druid.apache.org/" target="_blank">
+    <img alt="Druid" src="https://img.shields.io/badge/Druid-1.1.6-orange">
+  </a>
+  <a href="https://mysql.com/" target="_blank">
+    <img alt="MySQL" src="https://img.shields.io/badge/MySQL-5.1.x-blue">
+  </a>
+  <a href="https://guava.dev/" target="_blank">
+    <img alt="Guava" src="https://img.shields.io/badge/Guava-24.0--jre-teal">
+  </a>
+</p>
 
 </div>
 
